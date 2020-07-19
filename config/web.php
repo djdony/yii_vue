@@ -54,7 +54,11 @@ $config = [
                 [
                     'class' => \yii\rest\UrlRule::class,
                     'pluralize' => false,
-                    'controller' => ['api/product'],
+                    'controller' => [
+                        'api/product',
+                        'api/country',
+                        'api/age-group',
+                    ],
                 ]  
             ],
         ]

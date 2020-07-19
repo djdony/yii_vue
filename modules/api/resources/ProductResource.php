@@ -7,4 +7,5 @@ use app\models\Product;
 
 class ProductResource extends Product
 {
+    
 }

@@ -2,23 +2,21 @@
 
 namespace app\models\query;
 
-
 /**
- * This is the ActiveQuery class for [[\app\models\Product]].
+ * This is the ActiveQuery class for [[\app\models\Profile]].
  *
- * @see \app\models\Product
+ * @see \app\models\Profile
  */
-class ProductQuery extends \yii\db\ActiveQuery
+class queryProfileQuery extends \yii\db\ActiveQuery
 {
-    
-    public function active()
+    /*public function active()
     {
         return $this->andWhere('[[status]]=1');
-    }
+    }*/
 
     /**
      * {@inheritdoc}
-     * @return \app\models\Product[]|array
+     * @return \app\models\Profile[]|array
      */
     public function all($db = null)
     {
@@ -27,7 +25,7 @@ class ProductQuery extends \yii\db\ActiveQuery
 
     /**
      * {@inheritdoc}
-     * @return \app\models\Product|array|null
+     * @return \app\models\Profile|array|null
      */
     public function one($db = null)
     {

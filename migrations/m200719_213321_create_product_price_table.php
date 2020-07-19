@@ -3,39 +3,40 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%product}}`.
+ * Handles the creation of table `{{%product_price}}`.
  */
-class m200718_152311_create_product_table extends Migration
+class m200719_213321_create_product_price_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('product', [
+        $this->createTable('{{%product_price}}', [
             'id' => $this->primaryKey(),
-            'title' => $this->string(12)->notNull()->unique(),
+            'age_group_id' => $this->integer()->null(),
+            'policy_period' => $this->integer()->null(),
             'active' => $this->boolean()->defaultValue(true)->notNull(),
-            'countries' => $this->json()->null(),
             'created_by' => $this->integer(),
-            'age_groups' => $this->json(),
             'created_at' => $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
             'updated_by' => $this->integer(),
             'updated_at' => $this->timestamp(),
         ]);
 
-        //index for active
-        $this->createIndex(
-          'idx-product-title',
-          'product',
-          'title'
+        $this->addForeignKey(
+            'fk-age_group_id',
+            'product_price',
+            'age_group_id',
+            'age_group',
+            'id'
         );
     }
+
     /**
      * {@inheritdoc}
      */
     public function safeDown()
     {
-        $this->dropTable('{{%product}}');
+        $this->dropTable('{{%product_price}}');
     }
 }

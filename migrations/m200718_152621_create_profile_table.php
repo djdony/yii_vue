@@ -20,6 +20,7 @@ class m200718_152621_create_profile_table extends Migration
             'phone' => $this->string(50)->null(),
             'email' => $this->string(250)->null(),
             'status_id' => $this->integer()->defaultValue(0),
+            'country_id' => $this->integer()->null(),
             'created_at' => $this->timestamp()->defaultExpression('CURRENT_TIMESTAMP'),
             'updated_at' => $this->timestamp(),
         ]);
@@ -30,6 +31,15 @@ class m200718_152621_create_profile_table extends Migration
             'profile',
             'name'
         );
+
+        $this->addForeignKey(
+            'fk-country_id',
+            'profile',
+            'country_id',
+            'country',
+            'id'
+        );
+
     }
 
     /**
