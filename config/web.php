@@ -2,6 +2,7 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+require_once(__DIR__.'/functions.php');
 
 $config = [
     'id' => 'basic',
@@ -14,7 +15,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => 'fbTr73gOCsSvuNNN38v8KahwamPKigkd',
+            'cookieValidationKey' => env('YII_SECRET_KEY'),
             'parsers' => [
                 'application/json' => 'yii\web\JsonParser'
             ],
@@ -71,7 +72,7 @@ $config = [
     'params' => $params,
 ];
 
-if (YII_ENV_DEV) {
+if (env('YII_ENV_DEV')) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [
